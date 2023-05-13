@@ -45,7 +45,7 @@
         </div>
       </transition>
       <div v-if="reqIsLoading" class="loader">
-        <the-loader></the-loader>
+        <the-loader />
       </div>
     </div>
   </div>
@@ -81,7 +81,6 @@ export default {
       showReset.value = true;
     }
     function setRequestLoading(data) {
-      // console.log("Is loading?",data);
       reqIsLoading.value = data;
     }
 

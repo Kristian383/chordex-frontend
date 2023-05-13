@@ -1,70 +1,94 @@
 <template>
   <section>
-    <div class="home">
-      <div class="form" v-if="!isLogged">
-        <!-- <span><h2>Welcome!</h2></span> -->
-        <new-user-auth></new-user-auth>
+    <div class="home-welcome-container">
+      <div v-if="!isLogged" class="auth-form-container">
+        <new-user-auth />
       </div>
-      <div class="home-content third" :class="{ logged: isLogged }">
-        <div>
+      <div class="form-and-img-container" :class="{ logged: isLogged }">
+        <div style="padding: 0 1rem">
           <h2>
-            Keep track of your songs and store them at one place with ChordEx.
+            Welcome to Chord<span style="color: var(--burgundy)">Ex</span>, the ultimate music website!
           </h2>
+          <h3>Customize your music library - keep track of songs and store them at one place</h3>
         </div>
         <div>
-          <img src="@/assets/home.jpg" alt="logo" />
+          <img src="@/assets/home.jpg" alt="musician" />
         </div>
-      </div>
-      <!--  -->
-      <div class="home-content" id="songs">
-        <img src="@/assets/home_cards.png" alt="logo" class="home-image" />
-      </div>
-      <div class="smaller">
-        <h4>Do you play piano, guitar or any other instrument?</h4>
-        <h2>Write information about songs:</h2>
-        <ul>
-          <li><h3>Key</h3></li>
-          <li><h3>Chords</h3></li>
-          <li><h3>BPM</h3></li>
-          <li><h3>Chord Progression</h3></li>
-          <li><h3>Youtube link</h3></li>
-          <li><h3>...</h3></li>
-        </ul>
       </div>
     </div>
+    <!--  -->
+    <div class="app-preview-container">
+      <div class="details-container">
+        <div class="details-container-header">
+          <h3>
+            ORGANIZE YOUR CHORD PROGRESSIONS AND LYRICS
+          </h3>
+          <img src="@/assets/playlists.png" alt="musician" />
+        </div>
+        <p>
+          Are you tired of losing track of the songs you've learned on your instrument?
+        </p>
+        <p>
+          This app is designed specifically for musicians who want an easy
+          and convenient way to store and organize their music.
+        </p>
+        <p>
+          Whether you're a beginner or a pro, it has everything you need to take your music to the next level.
+        </p>
+      </div>
+      <img
+        style="filter: drop-shadow(2.5px 2.5px 5px #ccc)" src="@/assets/home_cards.png" alt="app design"
+        class="app-image"
+      />
+    </div>
     <!-- items -->
-    <div class="mid-section">
-      <h2>Simple virtual songbook for any musician</h2>
+    <div class="cards-container">
+      <h2>VIRTUAL SONGBOOK FOR ANY MUSICIAN</h2>
       <div class="items">
-        <div class="item">
+        <div class="item" style="grid-area: item1;">
           <h4>YouTube video integration</h4>
-          <img src="@/assets/yt.png" alt="" />
+          <img src="@/assets/yt.png" alt="YouTube" />
           <p>
             Paste YouTube link of a song or a lesson and have it displayed
             together with other song details such as chords, tempo etc.
           </p>
         </div>
-        <div class="item">
+        <div class="item" style="grid-area: item2;">
           <h4>Metronome</h4>
-          <img src="@/assets/metro.png" alt="" />
+          <img src="@/assets/metro.png" alt="Metronome" />
           <p>
             After inserting tempo (BPM) of each song, you get a feature to play
             metronome and practice at the same time.
           </p>
         </div>
-        <div class="item">
+        <div class="item" style="grid-area: item3;">
           <h4>Virtual Songbook</h4>
-          <img src="@/assets/book.png" alt="" />
+          <img src="@/assets/book.png" alt="Virtual Songbook" />
           <p>
-            Instead of having a book and carrying it all around, you can write
-            it all here.
+            <!-- Instead of having a book and carrying it all around, you can write
+            it all here. -->
+            Store all your favorite songs, chord progressions, and lyrics in one place.
           </p>
         </div>
-        <div class="item">
+        <div class="item" style="grid-area: item4;">
           <h4>Faster learning</h4>
-          <img src="@/assets/thinking.png" alt="" />
+          <img src="@/assets/thinking.png" alt="Faster learning" />
           <p>
             You can keep track of learned songs and easily recall all of them.
+          </p>
+        </div>
+        <div class="item" style="grid-area: item5;">
+          <h4>Playlists</h4>
+          <img src="@/assets/playlist_.png" alt="Playlists" />
+          <p>
+            Easily organize and find your songs by adding them to custom playlists.
+          </p>
+        </div>
+        <div class="item" style="grid-area: item6;">
+          <h4>Song BPM and key</h4>
+          <img src="@/assets/search.png" alt="Search song info" />
+          <p>
+            Find the BPM (tempo) and key of any song by typing in the artist and song name.
           </p>
         </div>
       </div>
@@ -77,30 +101,29 @@
             <img src="@/assets/full.png" alt="logo" />
           </div>
           <div class="product-info">
-            <p>Built in features:</p>
+            <p>Built-in features:</p>
             <ul>
               <li>Immediately get a song key and BPM</li>
               <li>Insert and watch YouTube video of a song/lesson</li>
               <li>Write and analyze chord progressions</li>
-              <li>Built in metronome</li>
+              <li>Built-in metronome</li>
+              <li>Add songs to playlists</li>
+              <li>Search and filter the songs</li>
               <li>Store often used websites in a list</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-    <!-- scroll top -->
-    <scroll-up :class="{ show: showBackToTop }"></scroll-up>
+    <scroll-up :class="{ show: showBackToTop }" />
   </section>
 </template>
 
 <script>
 import NewUserAuth from "./../components/ui/auth/new-api/NewUserAuth.vue";
-import ScrollUp from "./../components/ui/ScrollUp.vue";
 export default {
   components: {
     NewUserAuth,
-    ScrollUp,
   },
   data() {
     return {
@@ -110,15 +133,6 @@ export default {
   computed: {
     isLogged() {
       return !!this.$store.getters.token;
-    },
-  },
-  methods: {
-    showButtonUp() {
-      if (window.scrollY > 800) {
-        this.showBackToTop = true;
-      } else if (window.scrollY < 800) {
-        this.showBackToTop = false;
-      }
     },
   },
   mounted() {
@@ -132,130 +146,162 @@ export default {
   beforeUnmount() {
     window.removeEventListener("scroll", this.showButtonUp);
   },
+  methods: {
+    showButtonUp() {
+      if (window.scrollY > 800) {
+        this.showBackToTop = true;
+      } else if (window.scrollY < 800) {
+        this.showBackToTop = false;
+      }
+    },
+  },
 };
 </script>
 
-<style scoped>
-.home {
+<style lang="scss" scoped>
+.home-welcome-container {
   display: grid;
   grid-template-columns: 1fr;
-  max-width: 1700px;
+  max-width: 106.25rem;
   margin: 0 auto;
   height: 100%;
-}
-@media (min-width: 1000px) {
-  .home {
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 56px;
+  gap: 1rem;
+
+  .auth-form-container {
+    position: relative;
+    // min-height: 37.5rem;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: start;
   }
+  
+  .form-and-img-container {
+    // height: 90vh;
+    text-align: center;
+    padding-top: 1rem;
 
-  .third {
-    grid-column: 2/4;
-    padding-top: 90px;
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      max-height: 500px;
+      object-fit: contain;
+    }
   }
-
-  .third.logged {
-    grid-column: 1/4;
-  }
-  #songs {
-    grid-column: 1 / 3;
-  }
-}
-
-/* sign form */
-.form {
-  background-color: var(--white);
-  position: relative;
-  min-height: 600px;
-  padding: 0px 24px;
-}
-
-/*  */
-.home-content {
-  text-align: center;
-}
-.home-content h2 {
-  font-size: 26px;
-  padding: 0 16px;
-}
-
-.home-content img {
-  width: 100%;
-  padding: 0px 8px;
-  height: 100%;
-  max-height: 500px;
-  object-fit: contain;
-}
-
-.smaller {
-  border-top: 6px solid #ff4f5a;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  background-color: var(--light_gray);
-}
-@media (min-width: 1000px) {
-  .smaller {
-    border-left: 6px solid #ff4f5a;
-    margin-left: 25px;
-    border-top: 0;
-    /* border-radius: 0px 8px 8px 0px; */
-    margin-right: 8px;
-    border-top-right-radius: 50px;
-  }
-  .home-content h2 {
-    font-size: 40px;
+  
+  @media (min-width: 1000px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      .auth-form-container {
+        margin-top: 5.625rem;
+      }
+      .form-and-img-container {
+        grid-column: 2/4;
+        padding-top: 5.625rem;
+      }
+      .form-and-img-container.logged {
+        grid-column: 1/4;
+      }
   }
 }
-.smaller ul {
-  color: var(--dark_gray_font);
-}
-.smaller li {
-  padding: 12px;
-  display: block;
-  width: 260px;
-  margin: 0 auto;
-  display: list-item;
-}
 
-.smaller h4 {
-  text-align: center;
-  padding: 10px 26px;
-  font-size: 21px;
+.app-preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  .app-image {
+      width: 100%;
+      height: 100%;
+      max-height: 700px;
+      object-fit: contain;
+    }
+
+    .details-container {
+      border-top: 6px solid #ff4f5a;
+      padding: 1rem;
+      position: relative;
+      color: var(--dark_blue_sidebar);
+      // background-color: #f8f8f8;
+      background: #FFE5E6;
+      background: linear-gradient(120deg, rgba(255,229,230,1) 0%, rgba(255,229,230,1) 35%, rgba(255,255,255,1) 100%);
+      // box-shadow: rgba(0, 0, 0, 0.1) 0 0 5px 0, rgba(0, 0, 0, 0.1) 0 0 1px 0;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+      .details-container-header {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 0.5rem;
+
+        h3 {
+          // color: var(--burgundy);
+          text-align: center;
+        }
+      }
+
+      p {
+        font-size: 1.25rem; 
+        margin-bottom: 1rem;
+      }
+
+      @media (min-width: 1000px) {
+        padding: 1rem 2rem 2rem 2rem; 
+        border-radius: 0.75rem;
+        border-top: 0;
+      }
+    }
 }
-.smaller h3 {
-  font-weight: 500;
-}
-.smaller h2 {
-  padding: 10px 16px;
-  font-size: 21px;
-  font-weight: 500;
-  text-align: center;
-}
-@media (min-width: 1000px) {
-  .smaller h4 {
-    margin: 24px 0px;
-  }
-}
-/* items */
-.mid-section {
+/* card items */
+.cards-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: #f8f8f8;
-  margin-top: 24px;
-  padding: 28px 8px;
-  gap: 24px;
+  background: #f8f8f8;
+  background: linear-gradient(20deg, rgba(242,242,242,1) 0%, rgba(255,255,255,1) 100%);
+  margin-top: 1.5rem;
+  padding: 1.75rem 0.5rem;
+  gap: 1.5rem;
   text-align: center;
+
+  .items {
+    padding: 0.5rem;
+    display: grid;
+    max-width: 1700px;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 2rem;
+    grid-template-areas:
+      "item1"
+      "item2"
+      "item3"
+      "item4"
+      "item5"
+      "item6";
+
+    @media (min-width: 720px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+      "item1 item2"
+      "item3 item4"
+      "item5 item6";
+    }
+    @media (min-width: 1350px) {
+        grid-template-areas: 
+        "item1 item2 item3 item4"
+          ". item5 item6 .";
+    }
+  }
 }
 
-.items {
-  padding: 8px;
-  display: grid;
-  max-width: 1700px;
-  margin: 0 auto;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  gap: 34px;
-}
 .items .item {
   width: 300px;
   display: flex;
@@ -277,18 +323,6 @@ export default {
   color: var(--dark_gray_font);
   line-height: 24px;
 }
-@media (min-width: 720px) {
-  .items {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1350px) {
-  .items {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-/*  */
 .products-wrapper-bckg {
   height: 100%;
   padding-bottom: 18px;
@@ -302,7 +336,7 @@ export default {
 
 .product {
   display: grid;
-  height: 800px;
+  height: 600px;
   grid-template-columns: 1fr;
   align-items: center;
   justify-items: center;
@@ -314,7 +348,7 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 0px 8px;
+  padding: 0 0.5rem;
 }
 .product-info {
   background-color: #fff;

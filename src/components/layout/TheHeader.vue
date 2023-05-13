@@ -6,7 +6,7 @@
           <img src="@/assets/guitar.svg" alt="Quote Logo" />
         </router-link>
       </span>
-      <div class="title"><h2>ChordEx</h2></div>
+      <div class="title"><h2>Chord<span style="color: var(--burgundy)">Ex</span></h2></div>
       <ul class="navigation">
         <li>
           <router-link class="link" active-class="active" to="/home">
@@ -174,9 +174,9 @@ header nav .logo img {
   transition: 0.5s ease all;
 }
 
-.scrolled-nav {
+/* .scrolled-nav {
   background-color: rgb(245, 245, 245);
-}
+} */
 .scrolled-nav nav {
   padding: 0.5rem 0;
 }

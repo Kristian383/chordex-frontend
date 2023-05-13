@@ -191,7 +191,9 @@ export default {
 
 .form-container {
   background: #fefefe;
-  padding: 25px 30px 12px 30px;
+  padding: 1.5625rem 1.875rem 5.625rem;
+  position: relative;
+
 
   .input-group {
     @include input-group;

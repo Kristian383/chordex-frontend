@@ -2,9 +2,9 @@
   <VueRecaptcha
     :sitekey="siteKey"
     :load-recaptcha-script="true"
+    class="captcha-container"
     @verify="handleSuccess"
     @error="handleError"
-    class="captcha-container"
   ></VueRecaptcha>
 </template>
 
@@ -46,7 +46,10 @@ export default {
 .captcha-container {
   display: flex;
   justify-content: center;
-  //   overflow: hidden;
+  position: absolute;
+  left: 50%;
+  bottom: 0.625rem;
+  transform: translateX(-50%);
 }
 </style>
 
