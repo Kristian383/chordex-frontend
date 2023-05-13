@@ -255,9 +255,9 @@ export default {
     };
 
     const handleArrowKeys = (event) => {
-      if (event.code === 'ArrowLeft') {
+      if (event.code === 'ArrowLeft' && !(disableNavigationButton.value === 'prev' || disableNavigationButton.value === 'both')) {
         goToSong("prev");
-      } else if (event.code === 'ArrowRight') {
+      } else if (event.code === 'ArrowRight' && !(disableNavigationButton.value === 'next' || disableNavigationButton.value === 'both')) {
         goToSong("next");
       }
     };
