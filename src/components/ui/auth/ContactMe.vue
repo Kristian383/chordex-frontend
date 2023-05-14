@@ -1,9 +1,9 @@
 <template>
   <div class="contact">
-    <h1>Contact me</h1>
+    <h2>Contact me</h2>
     <form>
       <div class="form-group">
-        <label for="email">Email address*</label>
+        <label for="email">Email address <span style="color: var(--burgundy);">*</span></label>
         <input
           id="email"
           v-model.trim="email.val"
@@ -28,17 +28,18 @@
           :class="{ 'error-msg': !message.isValid }"
           @focus="clearValidity('message')"
         ></textarea>
+        <p class="error-text" :class="{ valid: goodRequest }">{{ infoMsg }}</p>
       </div>
-      <re-captcha @recaptcha-check="setReCaptchaValidity"></re-captcha>
       <!--  -->
-      <button :disabled="isSending" class="btn" @click.prevent="submitForm">
+      <div class="contact-me-recaptcha-container">
+        <re-captcha class="contact-me-recaptcha" @recaptcha-check="setReCaptchaValidity" />
+      </div>
+      <!--  -->
+      <button :disabled="isSending" class="btn send-btn" @click.prevent="submitForm">
         Send
       </button>
-      <!-- -->
-      <p class="error-text" :class="{ valid: goodRequest }">{{ infoMsg }}</p>
-      <!--  -->
       <div class="loader">
-        <the-loader v-if="isSending"></the-loader>
+        <the-loader v-if="isSending" />
       </div>
     </form>
   </div>
@@ -122,44 +123,35 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .contact {
   max-width: 1280px;
   width: 100%;
   position: relative;
   margin: 0 auto;
-}
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 5px 0, rgba(0, 0, 0, 0.1) 0 0 1px 0;
+  padding: 1rem 1rem 3rem;
 
-.contact h1 {
-  margin-bottom: 16px;
-  margin-left: 30px;
-}
-
-.contact form {
-  display: -ms-grid;
-  display: grid;
-  position: relative;
-  -ms-grid-columns: 1fr;
-  grid-template-columns: 1fr;
-  grid-gap: 16px;
-  background-color: #fff;
-  border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  padding: 12px;
-}
-@media (min-width: 768px) {
-  .contact form {
-    -ms-grid-columns: (1fr);
-    grid-template-columns: repeat(2, 1fr);
-    padding: 32px;
+  h2 {
+    margin-bottom: 1rem;
+    text-align: center;
   }
 
-  .contact {
-    padding: 18px;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+
+    .contact-me-recaptcha-container {
+      height: 78px;
+      position: relative;
+    }
   }
-}
-.contact form .form-group.full {
-  grid-column: 1 / -1;
+
+  .contact-me-recaptcha {
+    top: 0;
+  }
 }
 .contact form .form-group label {
   display: block;
@@ -189,27 +181,21 @@ export default {
 }
 
 .btn {
-  display: inline-block;
   background: var(--dark_gray_font);
   border-radius: 4px;
+  max-width: 304px;
+  width: 100%;
   padding: 10px 20px;
   border: none;
   color: var(--white);
   font-size: inherit;
-  cursor: pointer;
-  width: 80px;
-  height: 40px;
-  outline: none;
   align-self: center;
   justify-self: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4),
-    0 5px 10px -1px rgba(51, 51, 51, 0.3);
   transition: 0.5s ease;
 }
 .btn:hover {
   background: #59e4a8;
-  color: #ffffff;
-  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .loader {

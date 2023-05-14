@@ -23,7 +23,7 @@
         information at one place and learn much quicker!
       </p>
     </div>
-    <contact-me></contact-me>
+    <contact-me />
   </div>
 </template>
 
@@ -50,6 +50,7 @@ export default {
   margin: 0 auto;
   justify-items: center;
   align-items: center;
+  gap: 0.5rem;
 }
 @media (min-width: 1000px) {
   .about {
