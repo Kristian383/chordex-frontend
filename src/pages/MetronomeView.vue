@@ -2,26 +2,32 @@
   <base-card>
     <section>
       <div class="metronome-view">
-        <the-metronome></the-metronome>
+        <the-metronome />
       </div>
       <div class="blog-about-metronome">
         <div class="about-metronome">
           <h2>What is Metronome?</h2>
           <p>
             A metronome is a practice tool that produces a steady pulse (or
-            beat) to help musicians play rhythms accurately. The pulses are
+            beat) to help musicians improve their timing and rhythm. The pulses are
             measured in
             <b>beats-per-minute (BPM)</b>.
           </p>
           <p>
-            Common uses of the metronome are helping you to maintain an
-            established <u>tempo</u> while practicing, recording and learning
-            difficult licks and riffs. You can also use the feature with
-            <b>"Tap Tempo"</b> button to find out the rythm of a song.
+            And because metronome is fully integrated with the rest of the ChordEx platform, you can easily store and 
+            organize all your practice sessions, notes, and recordings in one place.
+            This makes it easy to track your progress over time, and stay motivated as you work towards your musical goals.
+          </p>
+          <p>
+            You can also use the feature with <b>"Tap Tempo"</b> button to find out the rythm of a song.
+            So whether you're a guitarist, pianist, drummer, or any other type of musician, Chordex's metronome is the perfect tool to help you take your playing to the next level. 
           </p>
         </div>
         <div class="about-usage">
-          <h2>How to use it?</h2>
+          <h2>How to use ChordEx metronome?</h2>
+          <p>
+            This metronome also includes the possibility to adjust the accent (sincopation) of the first beat by <b>clicking</b> on the first beat circle.
+          </p>
           <ul>
             <li>
               <b>Sincopation</b> - click on the first circle to toggle accent of
@@ -41,12 +47,19 @@
             </li>
           </ul>
         </div>
-        <div class="about-time-signatures">
+        <div>
           <h2>Understanding Time Signatures</h2>
           <p>
             Time signatures are one of the most important indications in music.
-            We use them to help <b>divide music into phrases</b> and
-            <b>make it easier to memorize and understand</b> music.
+            Understanding them is essential for musicians, whether you're a beginner or a professional.
+            We use time signatures to help <b>divide music into phrases</b> and
+            make it easier to <b>memorize and understand</b> music.
+          </p>
+          <p>
+            They provide a framework for the music, helping musicians know when to play certain notes and for how long.
+            This structure is critical when writing a song because it helps to ensure that the rhythm is consistent and supports 
+            the melody and lyrics. It allows the songwriter to create a clear and organized framework for the song's structure and to
+            control the pace and flow of the music.
           </p>
           <p>
             Time signatures consist of <b>two</b> numbers: a top number and a
@@ -55,6 +68,20 @@
             values those beats are. The <u>most used time</u> signature is
             <b>4/4.</b> If the bottom number is a 4, it means the beats are
             quarter notes (four quarter notes in a measure).
+          </p>
+        </div>
+        <div>
+          <h2>Why are Time Signatures Important?</h2>
+          <p>
+            They help musicians play together in time and establish the feel and groove of a song. 
+            Understanding time signatures is also crucial for reading and writing music notation. 
+            By understanding the number of beats in each measure and the corresponding note value, musicians can 
+            accurately notate and play the rhythms in a piece of music.
+          </p>
+          <p>
+            Different time signatures can create different rhythmic feels, and they are commonly used to give a 
+            piece of music a specific groove or feel. For example, a 4/4 time signature is common in pop and rock music, while 
+            a 3/4 time signature is often used in waltzes and other ballads.
           </p>
         </div>
       </div>
@@ -104,7 +131,6 @@ export default {
   @include md {
     border-radius: 16px;
   }
-  // margin: 0 auto;
 }
 
 .blog-about-metronome {

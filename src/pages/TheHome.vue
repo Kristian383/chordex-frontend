@@ -35,6 +35,9 @@
         <p>
           Whether you're a beginner or a pro, it has everything you need to take your music to the next level.
         </p>
+        <p>
+          <b>Sign up</b> for ChordEx today and start practicing like a pro!
+        </p>
       </div>
       <img
         style="filter: drop-shadow(2.5px 2.5px 5px #ccc)" src="@/assets/home_cards.png" alt="app design"
