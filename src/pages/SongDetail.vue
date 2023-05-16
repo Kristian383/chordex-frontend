@@ -25,14 +25,14 @@
       <!-- yt video  -->
       <div class="box video"> 
         <iframe
-          v-if="songData.ytLink"
-          :src="songData.ytLink"
+          v-if="songData?.ytLink"
+          :src="songData?.ytLink"
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         />
-        <img v-else :src="songData.imgUrl || imgUrl" alt="Artist" />
+        <img v-else :src="songData?.imgUrl || imgUrl" alt="Artist" />
       </div>
       <div class="box song-info">
         <div class="top-icons">
@@ -44,54 +44,54 @@
           </div>
         </div>
         <div>
-          <router-link class="artist-link" :to="artistRoute">{{ songData.artist }}</router-link>
+          <router-link class="artist-link" :to="artistRoute">{{ songData?.artist }}</router-link>
         </div>
         <!-- Song and bpm -->
         <div>
-          <div>{{ songData.songName }}</div>
-          <div v-if="songData.bpm" title="BPM">
+          <div>{{ songData?.songName }}</div>
+          <div v-if="songData?.bpm" title="BPM">
             <font-awesome-icon icon="drum" />
-            {{ songData.bpm }}
+            {{ songData?.bpm }}
           </div>
         </div>
         <!-- keys -->
-        <div v-if="songData.firstKey">
-          <div><b>Key:</b> {{ songData.firstKey }}</div>
-          <div v-if="songData.firstKeyNotes"><b>Chords in key:</b> {{ songData.firstKeyNotes }}</div>
-          <div v-if="songData.firstChordProgression">
-            <b>Chord progression:</b> {{ songData.firstChordProgression }}
+        <div v-if="songData?.firstKey">
+          <div><b>Key:</b> {{ songData?.firstKey }}</div>
+          <div v-if="songData?.firstKeyNotes"><b>Chords in key:</b> {{ songData?.firstKeyNotes }}</div>
+          <div v-if="songData?.firstChordProgression">
+            <b>Chord progression:</b> {{ songData?.firstChordProgression }}
           </div>
         </div>
-        <div v-if="songData.secondKey">
-          <div><b>Key Change:</b> {{ songData.secondKey }}</div>
+        <div v-if="songData?.secondKey">
+          <div><b>Key Change:</b> {{ songData?.secondKey }}</div>
           <div>
-            <b>Chords in scale:</b> {{ songData.secondKeyNotes }}
+            <b>Chords in scale:</b> {{ songData?.secondKeyNotes }}
           </div>
-          <div v-if="songData.secondChordProgression">
-            <b>Chord progression:</b> {{ songData.secondChordProgression }}
+          <div v-if="songData?.secondChordProgression">
+            <b>Chord progression:</b> {{ songData?.secondChordProgression }}
           </div>
         </div>
         <!-- capo  tuning guitar-->
         <div>
-          <div v-if="songData.capo"><b>Capo: </b>{{ songData.capo }}</div>
-          <div><b>Tuning: </b>{{ songData.tuning ? songData.tuning : "Standard" }}</div>
-          <div v-if="songData.acoustic || songData.electric">
-            <b>Guitar type: </b> {{ songData.acoustic ? "Acoustic" : "" }}
-            {{ songData.electric ? "Eletric" : "" }}
+          <div v-if="songData?.capo"><b>Capo: </b>{{ songData?.capo }}</div>
+          <div><b>Tuning: </b>{{ songData?.tuning ? songData?.tuning : "Standard" }}</div>
+          <div v-if="songData?.acoustic || songData?.electric">
+            <b>Guitar type: </b> {{ songData?.acoustic ? "Acoustic" : "" }}
+            {{ songData?.electric ? "Eletric" : "" }}
           </div>
         </div>
         <!-- chordsWebsiteLink -->
         <div>
-          <div v-if="songData.chordsWebsiteLink">
+          <div v-if="songData?.chordsWebsiteLink">
             <b>Chords website: </b>
-            <a :href="songData.chordsWebsiteLink" target="_blank"> Link </a>
+            <a :href="songData?.chordsWebsiteLink" target="_blank"> Link </a>
           </div>
         </div>
-        <div v-if="songData.difficulty">
-          <div><b>Difficulty: </b> {{ songData.difficulty }}</div>
+        <div v-if="songData?.difficulty">
+          <div><b>Difficulty: </b> {{ songData?.difficulty }}</div>
         </div>
       </div>
-      <div v-if="songData.songText" class="box notebook">
+      <div v-if="songData?.songText" class="box notebook">
         <hr />
         <br />
         <div class="copy-notes-container">
@@ -102,7 +102,7 @@
           />
           <span v-else>Copied!</span>
         </div>
-        <pre>{{ songData.songText }}</pre>
+        <pre>{{ songData?.songText }}</pre>
       </div>
     </div>
     <add-to-playlist-modal
