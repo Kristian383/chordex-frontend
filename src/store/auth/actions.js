@@ -19,10 +19,10 @@ export default {
     },
     async auth(context, payload) {
         const mode = payload.mode;
-        let url = new URL(`/login`, process.env.VUE_APP_URL);
+        let url = new URL(`api/login`, process.env.VUE_APP_URL);
 
         if (mode === "signup") {
-            url = new URL(`/register`, process.env.VUE_APP_URL);
+            url = new URL(`api/register`, process.env.VUE_APP_URL);
         }
         let response;
         try {
@@ -81,7 +81,7 @@ export default {
         return response;
     },
     async firebaseBackendCall(context, google_token) {
-        let url = new URL(`/firebase`, process.env.VUE_APP_URL);
+        let url = new URL(`api/firebase`, process.env.VUE_APP_URL);
         let response;
         try {
             response = await fetch(url,
@@ -180,7 +180,7 @@ export default {
     },
 
     async forgotPassword(_, email) {
-        let url = new URL(`/forgotpassword`, process.env.VUE_APP_URL);
+        let url = new URL(`api/forgotpassword`, process.env.VUE_APP_URL);
         let response;
         try {
             response = await fetch(url,
@@ -205,7 +205,7 @@ export default {
     },
 
     async resetPassword(_, payload) {
-        let url = new URL(`/resetpassword/${payload.token}`, process.env.VUE_APP_URL);
+        let url = new URL(`api/resetpassword/${payload.token}`, process.env.VUE_APP_URL);
 
         const expiresIn = jwt_decode(payload.token, { header: true }).exp;
         var ts = Math.round((new Date()).getTime() / 1000);
@@ -234,7 +234,7 @@ export default {
     ,
     async contactMe(context, payload) {
         let access_token = context.getters.token;
-        let url = new URL(`/contactme`, process.env.VUE_APP_URL);
+        let url = new URL(`api/contactme`, process.env.VUE_APP_URL);
 
         let response;
         try {
@@ -261,7 +261,7 @@ export default {
     },
 
     async requestDeleteAccount(context, payload) {
-        let url = new URL(`/delete-acc-request`, process.env.VUE_APP_URL);
+        let url = new URL(`api/delete-acc-request`, process.env.VUE_APP_URL);
         let access_token = context.getters.token;
         let response;
         try {
@@ -287,7 +287,7 @@ export default {
     },
 
     async deleteAccount(context, payload) {
-        let url = new URL(`/delete-acc/${payload.token}`, process.env.VUE_APP_URL);
+        let url = new URL(`api/delete-acc/${payload.token}`, process.env.VUE_APP_URL);
         let access_token = context.getters.token;
 
         const expiresIn = jwt_decode(payload.token, { header: true }).exp;

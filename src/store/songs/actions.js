@@ -2,7 +2,7 @@ export default {
     // async loadAllSongs(context) {
     //     const user_email = context.getters.user.email;
     //     const access_token = context.getters.token;
-    //     const url = new URL(`/songs/${user_email}`, process.env.VUE_APP_URL);
+    //     const url = new URL(`api/songs/${user_email}`, process.env.VUE_APP_URL);
 
     //     context.commit("setLoader");
     //     let response;
@@ -34,7 +34,7 @@ export default {
         const user_email = context.getters.user.email;
         const access_token = context.getters.token;
         const newSongsOffset = context.state.songsOffset;
-        const url = new URL(`/songs-paginated/${user_email}?offset=${newSongsOffset}&limit=40`, process.env.VUE_APP_URL);
+        const url = new URL(`api/songs-paginated/${user_email}?offset=${newSongsOffset}&limit=40`, process.env.VUE_APP_URL);
 
         let response;
         try {
@@ -65,7 +65,7 @@ export default {
     async addNewSong(context, payload) {
         const user_email = context.getters.user.email;
         const access_token = context.getters.token;
-        const url = new URL(`/song/${user_email}`, process.env.VUE_APP_URL);
+        const url = new URL(`api/song/${user_email}`, process.env.VUE_APP_URL);
 
         const body = {...payload};
         let methodType = "POST";
@@ -109,7 +109,7 @@ export default {
     async deleteSong(context, payload) {
         let user_email = context.getters.user.email;
         let access_token = context.getters.token;
-        let url = new URL(`/song/${user_email}`, process.env.VUE_APP_URL);
+        let url = new URL(`api/song/${user_email}`, process.env.VUE_APP_URL);
 
         const body = {
             "songName": payload.songName,
@@ -139,7 +139,7 @@ export default {
     },
     //MUSIC KEYS
     async loadMusicKeys(context) {
-        let url = new URL(`/keys`, process.env.VUE_APP_URL);
+        let url = new URL(`api/keys`, process.env.VUE_APP_URL);
 
         let response;
         try {
@@ -165,7 +165,7 @@ export default {
     async loadAllArtists(context) {
         let user_email = context.getters.user.email;
         let access_token = context.getters.token;
-        let url = new URL(`/artists/${user_email}`, process.env.VUE_APP_URL);
+        let url = new URL(`api/artists/${user_email}`, process.env.VUE_APP_URL);
 
         let response;
         try {
@@ -192,7 +192,7 @@ export default {
     async loadUsersNotes(context) {
         let user_email = context.getters.user.email;
         let access_token = context.getters.token;
-        let url = new URL(`/notes/${user_email}`, process.env.VUE_APP_URL);
+        let url = new URL(`api/notes/${user_email}`, process.env.VUE_APP_URL);
 
         let response;
         try {
@@ -220,7 +220,7 @@ export default {
     async updateUsersNotes(context, payload) {
         let user_email = context.getters.user.email;
         let access_token = context.getters.token;
-        let url = new URL(`/notes/${user_email}`, process.env.VUE_APP_URL);
+        let url = new URL(`api/notes/${user_email}`, process.env.VUE_APP_URL);
         let response;
         try {
             response = await fetch(url,
@@ -251,7 +251,7 @@ export default {
     async addUserWebsite(context, payload) {
         let user_email = context.getters.user.email;
         let access_token = context.getters.token;
-        let url = new URL(`/website/${user_email}`, process.env.VUE_APP_URL);
+        let url = new URL(`api/website/${user_email}`, process.env.VUE_APP_URL);
         let response;
         try {
             response = await fetch(url,
@@ -278,7 +278,7 @@ export default {
     async deleteUserWebsite(context, name) {
         let user_email = context.getters.user.email;
         let access_token = context.getters.token;
-        let url = new URL(`/website/${user_email}`, process.env.VUE_APP_URL);
+        let url = new URL(`api/website/${user_email}`, process.env.VUE_APP_URL);
 
         let response;
         try {
@@ -308,7 +308,7 @@ export default {
     async loadUserWebsites(context) {
         let user_email = context.getters.user.email;
         let access_token = context.getters.token;
-        let url = new URL(`/websites/${user_email}`, process.env.VUE_APP_URL);
+        let url = new URL(`api/websites/${user_email}`, process.env.VUE_APP_URL);
         let response;
         try {
             response = await fetch(url,
@@ -332,7 +332,7 @@ export default {
     },
     //SPOTIFY API
     async apiForSongInfo(_, payload) {
-        let url = new URL("/spotifyacess", process.env.VUE_APP_URL);
+        let url = new URL("api/spotifyacess", process.env.VUE_APP_URL);
         let response;
         try {
             response = await fetch(url,
@@ -358,7 +358,7 @@ export default {
     async loadPlaylists(context) {
         let user_email = context.getters.user.email;
         let access_token = context.getters.token;
-        let url = new URL(`/playlists/${user_email}`, process.env.VUE_APP_URL);
+        let url = new URL(`api/playlists/${user_email}`, process.env.VUE_APP_URL);
 
         let response;
         try {
@@ -384,7 +384,7 @@ export default {
     async fetchSongPlaylists(context, songId) {
         let user_email = context.getters.user.email;
         let access_token = context.getters.token;
-        let url = new URL(`/song-playlists/${user_email}/${songId}`, process.env.VUE_APP_URL);
+        let url = new URL(`api/song-playlists/${user_email}/${songId}`, process.env.VUE_APP_URL);
         let response;
         try {
             response = await fetch(url,
@@ -408,7 +408,7 @@ export default {
     async deleteSongFromPlaylist(context, payload) {
         let user_email = context.getters.user.email;
         let access_token = context.getters.token;
-        let url = new URL(`/playlist/${user_email}/${payload.playlist_name}`, process.env.VUE_APP_URL);
+        let url = new URL(`api/playlist/${user_email}/${payload.playlist_name}`, process.env.VUE_APP_URL);
         let response;
         try {
             response = await fetch(url,
@@ -429,7 +429,7 @@ export default {
     async addSongToPlaylist(context, payload) {
         let user_email = context.getters.user.email;
         let access_token = context.getters.token;
-        let url = new URL(`/playlist/${user_email}/${payload.playlist_name}`, process.env.VUE_APP_URL);
+        let url = new URL(`api/playlist/${user_email}/${payload.playlist_name}`, process.env.VUE_APP_URL);
         let response;
         try {
             response = await fetch(url,
@@ -449,7 +449,7 @@ export default {
     async createPlaylist(context, name) {
         let user_email = context.getters.user.email;
         let access_token = context.getters.token;
-        let url = new URL(`/playlists/${user_email}`, process.env.VUE_APP_URL);
+        let url = new URL(`api/playlists/${user_email}`, process.env.VUE_APP_URL);
         let response;
         try {
             response = await fetch(url,
@@ -473,7 +473,7 @@ export default {
     async fetchSongsForPlaylist(context, name) {
         let user_email = context.getters.user.email;
         let access_token = context.getters.token;
-        let url = new URL(`/playlist/${user_email}/${name}`, process.env.VUE_APP_URL);
+        let url = new URL(`api/playlist/${user_email}/${name}`, process.env.VUE_APP_URL);
         let response;
         try {
             response = await fetch(url,
@@ -496,7 +496,7 @@ export default {
     async updatePlaylistName(context, payload) {
         let user_email = context.getters.user.email;
         let access_token = context.getters.token;
-        let url = new URL(`/playlists/${user_email}`, process.env.VUE_APP_URL);
+        let url = new URL(`api/playlists/${user_email}`, process.env.VUE_APP_URL);
         let response;
         try {
             response = await fetch(url,
@@ -519,7 +519,7 @@ export default {
     async deletePlaylist(context, name) {
         let user_email = context.getters.user.email;
         let access_token = context.getters.token;
-        let url = new URL(`/playlists/${user_email}`, process.env.VUE_APP_URL);
+        let url = new URL(`api/playlists/${user_email}`, process.env.VUE_APP_URL);
         let response;
         try {
             response = await fetch(url,
