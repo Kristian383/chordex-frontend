@@ -9,7 +9,7 @@
         <h3>How to insert valid Youtube link</h3>
       </div>
       <div class="modal-body">
-        <img src="@/assets/yt_link.png" alt="How to insert youtube link" />
+        <img src="@/assets/yt_link.webp" alt="How to insert youtube link to display video" title="How to insert youtube link to display video" />
       </div>
       <div class="modal-footer">
         <button @click="closeYtModal">Close</button>

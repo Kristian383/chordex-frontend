@@ -8,7 +8,7 @@
   >
     <div class="card-header">
       <div class="image">
-        <img :src="song.imgUrl || imgUrl" alt="Photo" />
+        <img :src="song.imgUrl || imgUrl" alt="Artists album" :title="song.artist" />
       </div>
       <div class="icons">
         <div
@@ -46,7 +46,12 @@
               </li>
               <li v-if="!$route.query.isMySong" class="dropdown-popup-item" @click="$emit('openPlaylistModal', song.songId)">
                 <!-- <font-awesome-icon class="popup-item-icon" icon="plus" /> -->
-                <img style="width: 1rem;" src="@/assets/add-to-playlist.png" />
+                <img
+                  style="width: 1rem;"
+                  title="Add song to playlist"
+                  alt="Add song to playlist"
+                  src="@/assets/add-to-playlist.webp"
+                />
                 <span>Playlist</span>
               </li>
               <li class="dropdown-popup-item delete" @click="deleteSong">
@@ -118,7 +123,7 @@ const isFavorite = computed(() => {
 });
 
 const imgUrl = computed(() => {
-  return require("@/assets/music.png");
+  return require("@/assets/music.webp");
 });
 
 const showFirstKey = computed(() => {

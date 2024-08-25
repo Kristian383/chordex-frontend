@@ -38,7 +38,13 @@
         <div class="top-icons">
           <div class="action-icons">
             <font-awesome-icon :icon="favoriteIconName" style="pointer-events: none" :class="{ 'is-favorite': isFavorite }" />
-            <img class="add-to-playlist-icon" src="@/assets/add-to-playlist.png" @click="openModal = true" />
+            <img
+              class="add-to-playlist-icon"
+              alt="Add song to playlist"
+              title="Add song to playlist"
+              src="@/assets/add-to-playlist.webp"
+              @click="openModal = true"
+            />
             <font-awesome-icon icon="edit" class="edit" @click="openEdit" />
             <font-awesome-icon icon="trash-alt" class="delete" @click="deleteSong" />
           </div>
@@ -131,7 +137,7 @@ export default {
     const store = useStore();
   
     const showDetails = ref(false);
-    const imgUrl = computed(() => require("@/assets/music.png"));
+    const imgUrl = computed(() => require("@/assets/music.webp"));
     const isFavorite = computed(() => songData.value?.isFavorite);
     const songId = computed(() => route.params?.songId);
     const isMySong = computed(() => route.query?.isMySong === "True");

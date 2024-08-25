@@ -6,7 +6,10 @@
         <div class="row">
           <div class="user-info">
             <div class="photo">
-              <img class="profile-photo" src="@/assets/home.jpg" />
+              <img
+                class="profile-photo" alt="Profile" :title="getUserData.username"
+                src="@/assets/home.webp"
+              />
             </div>
             <h4 class="name">{{ getUserData.username }}</h4>
             <p class="mail">{{ getUserData.email }}</p>
@@ -160,7 +163,7 @@ export default {
 
 <style scoped>
 header {
-  background-image: url("../assets/skycover.jpg");
+  background-image: url("../assets/sky.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

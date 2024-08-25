@@ -33,7 +33,7 @@
       <div class="profile_content">
         <div class="profile">
           <div class="profile_details">
-            <img src="@/assets/guitar.svg" alt="" />
+            <img src="@/assets/guitar.webp" alt="Guitar instrument" title="Guitar" />
             <div class="name">{{ getUserData.username }}</div>
           </div>
         </div>

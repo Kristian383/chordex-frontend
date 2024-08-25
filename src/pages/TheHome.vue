@@ -12,7 +12,7 @@
           <h3>Customize your music library - keep track of songs and store them at one place</h3>
         </div>
         <div>
-          <img src="@/assets/home.jpg" alt="musician" />
+          <img src="@/assets/home.webp" alt="Guitarist writing notes in a book" title="Guitarist writing notes in a book" />
         </div>
       </div>
     </div>
@@ -23,7 +23,7 @@
           <h3>
             ORGANIZE YOUR CHORD PROGRESSIONS AND LYRICS
           </h3>
-          <img src="@/assets/playlists.png" alt="musician" />
+          <img src="@/assets/playlists.webp" alt="Music notes" title="Songs book" />
         </div>
         <p>
           Are you tired of losing track of the songs you've learned on your instrument?
@@ -40,7 +40,10 @@
         </p>
       </div>
       <img
-        style="filter: drop-shadow(2.5px 2.5px 5px #ccc)" src="@/assets/home_cards.png" alt="app design"
+        style="filter: drop-shadow(2.5px 2.5px 5px #ccc)"
+        src="@/assets/home_cards.webp"
+        alt="Display of chordex app features"
+        title="Display of chordex app features"
         class="app-image"
       />
     </div>
@@ -50,7 +53,7 @@
       <div class="items">
         <div class="item" style="grid-area: item1;">
           <h4>YouTube video integration</h4>
-          <img src="@/assets/yt.png" alt="YouTube" />
+          <img src="@/assets/yt.webp" alt="YouTube music video integration" title="YouTube music video integration" />
           <p>
             Paste YouTube link of a song or a lesson and have it displayed
             together with other song details such as chords, tempo etc.
@@ -58,7 +61,7 @@
         </div>
         <div class="item" style="grid-area: item2;">
           <h4>Metronome</h4>
-          <img src="@/assets/metro.png" alt="Metronome" />
+          <img src="@/assets/metro.webp" alt="Metronome" title="Metronome" />
           <p>
             After inserting tempo (BPM) of each song, you get a feature to play
             metronome and practice at the same time.
@@ -66,7 +69,7 @@
         </div>
         <div class="item" style="grid-area: item3;">
           <h4>Virtual Songbook</h4>
-          <img src="@/assets/book.png" alt="Virtual Songbook" />
+          <img src="@/assets/book.webp" alt="Virtual song book" title="Virtual song book" />
           <p>
             <!-- Instead of having a book and carrying it all around, you can write
             it all here. -->
@@ -75,21 +78,21 @@
         </div>
         <div class="item" style="grid-area: item4;">
           <h4>Faster learning</h4>
-          <img src="@/assets/thinking.png" alt="Faster learning" />
+          <img src="@/assets/thinking.webp" alt="Faster learning of an instrument" title="Faster learning of an instrument" />
           <p>
             You can keep track of learned songs and easily recall all of them.
           </p>
         </div>
         <div class="item" style="grid-area: item5;">
           <h4>Playlists</h4>
-          <img src="@/assets/playlist_.png" alt="Playlists" />
+          <img src="@/assets/song_playlists.webp" alt="Song playlists" title="Song playlists" />
           <p>
             Easily organize and find your songs by adding them to custom playlists.
           </p>
         </div>
         <div class="item" style="grid-area: item6;">
           <h4>Song BPM and key</h4>
-          <img src="@/assets/search.png" alt="Search song info" />
+          <img src="@/assets/search.webp" alt="Search information about a song" title="Search information about a song" />
           <p>
             Find the BPM (tempo) and key of any song by typing in the artist and song name.
           </p>
@@ -101,7 +104,7 @@
       <div class="products">
         <div class="product">
           <div class="product-image">
-            <img src="@/assets/full.png" alt="logo" />
+            <img src="@/assets/app_features_ui.webp" alt="Features and UI of the Chordex website" title="Features and UI of the Chordex website" />
           </div>
           <div class="product-info">
             <p>Built-in features:</p>

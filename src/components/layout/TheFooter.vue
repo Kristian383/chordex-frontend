@@ -10,9 +10,9 @@
           alt="Buy Me a Coffee at ko-fi.com"
         />
       </a>
-      <span>&copy; Kristian Nenadovic 2023</span>
+      <span>&copy; Kristian Nenadovic 2024</span>
       <div class="spotify-logo">
-        <img src="./../../assets/spotify.png" alt="Logo" />
+        <img src="./../../assets/spotify.webp" alt="Spotify music for song information" title="Spotify music" />
       </div>
       <a
         class="free-pick-link"

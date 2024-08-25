@@ -18,7 +18,7 @@ import { computed } from "vue";
 const props = defineProps(["song"]);
 
 const artistPhoto = computed(() => {
-  return require("../../assets/guitar.svg");
+  return require("../../assets/guitar.webp");
 });
 
 const artistSongsRoute = computed(() => {

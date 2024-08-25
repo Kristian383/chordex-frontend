@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <div class="about-picture">
-      <img src="@/assets/green.jpg" alt="" />
+      <img src="@/assets/musician_green.webp" title="Guitarist writing notes in notebook" alt="Musician with a guitar writing notes in notebook" />
     </div>
     <div class="about-text">
       <h2>Why should I use this website?</h2>

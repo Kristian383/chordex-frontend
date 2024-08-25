@@ -7,12 +7,12 @@
       <ul class="list-group">
         <li v-for="artist in sortList" :key="artist" class="list-group-item">
           <div class="thumbnail flex-center">
-            <img :src="artist.artistImg || artistPhoto" alt="Artist" />
+            <img :src="artist.artistImg || artistPhoto" alt="Artist" :title="artist.name" />
           </div>
           <div class="details">
             <h2>
               <router-link :to="'/songs?artist=' + artist.name">
-                {{artist.name}}
+                {{ artist.name }}
               </router-link>
             </h2>
             <p>Songs: {{ artist.totalSongs }}</p>
@@ -47,7 +47,7 @@ export default {
     });
 
     const artistPhoto = computed(() => {
-      return require("../assets/guitar.svg");
+      return require("../assets/guitar.webp");
     });
 
     function sortArtists(option) {

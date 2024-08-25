@@ -3,7 +3,7 @@
     <nav class="container">
       <span v-if="!hideLogo" class="logo">
         <router-link to="/home">
-          <img src="@/assets/guitar.svg" alt="Quote Logo" />
+          <img src="@/assets/guitar.webp" alt="Guitar" title="Chordex guitar" />
         </router-link>
       </span>
       <div class="title"><h2>Chord<span style="color: var(--burgundy)">Ex</span></h2></div>
