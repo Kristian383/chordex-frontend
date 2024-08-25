@@ -6,12 +6,13 @@
 </template>
 
 <script setup>
-import { computed, watch } from 'vue';
+import { computed, watch, onMounted, onUnmounted } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
+
 import TheSidebar from "./components/layout/TheSidebar.vue";
 import TheHeader from "./components/layout/TheHeader.vue";
 import TheFooter from "./components/layout/TheFooter.vue";
-import { useStore } from 'vuex';
-import { useRouter } from 'vue-router';
 
 const store = useStore();
 const router = useRouter();
@@ -24,6 +25,47 @@ watch(didAutoLogout, (curValue, oldValue) => {
   if (curValue && curValue !== oldValue) {
     router.replace('/home');
   }
+});
+
+// Define schema markup
+const schemaMarkup = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "ChordEx",
+  "description": "ChordEx is a powerful web application designed for musicians to organize their music library, analyze chord progressions, and track their practice songs. Key features include a metronome, YouTube video integration, creating custom playlists.",
+  "url": "https://chordex.net",
+  "applicationCategory": "Music",
+  "operatingSystem": "All",
+  "provider": {
+    "@type": "Organization",
+    "name": "ChordEx",
+    "url": "https://chordex.net"
+  },
+  "featureList": "Song key detection, BPM analysis, chord progression writer, YouTube video integration, built-in metronome, and playlist management."
+};
+
+const addSchemaScript = () => {
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.innerHTML = JSON.stringify(schemaMarkup);
+  document.head.appendChild(script);
+  
+  // Return function to remove script when component is unmounted
+  return () => {
+    if (document.head.contains(script)) {
+      document.head.removeChild(script);
+    }
+  };
+};
+
+// On component mount, add the schema script
+onMounted(() => {
+  const removeScript = addSchemaScript();
+
+  // Optionally remove script when component is unmounted
+  onUnmounted(() => {
+    removeScript();
+  });
 });
 </script>
 
