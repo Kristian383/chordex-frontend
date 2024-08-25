@@ -107,7 +107,7 @@ watch(
   display: flex;
   flex-direction: row;
   gap: 4px;
-  align-items: end;
+  align-items: flex-end;
 }
 .qualities input[type="checkbox"],
 .qualities input[type="radio"] {

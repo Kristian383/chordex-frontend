@@ -171,12 +171,9 @@ header nav .logo {
 }
 header nav .logo img {
   width: 3.125rem;
+  height: 3.125rem;
   transition: 0.5s ease all;
 }
-
-/* .scrolled-nav {
-  background-color: rgb(245, 245, 245);
-} */
 .scrolled-nav nav {
   padding: 0.5rem 0;
 }

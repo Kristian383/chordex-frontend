@@ -179,7 +179,7 @@ export default {
     margin-top: 2rem;
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: flex-start;
   }
   
   .form-and-img-container {
