@@ -84,9 +84,7 @@ export default {
                         "Content-Type": "application/json",
                         "Authorization": "Bearer " + access_token
                     },
-                    body: JSON.stringify(
-                        body
-                    )
+                    body: JSON.stringify(body)
                 });
         } catch {
             return false;
@@ -148,6 +146,7 @@ export default {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
+                        "Authorization": "Bearer " + access_token,
                     },
                 });
         } catch {
@@ -230,9 +229,7 @@ export default {
                         "Content-Type": "application/json",
                         "Authorization": "Bearer " + access_token
                     },
-                    body: JSON.stringify(
-                        payload
-                    )
+                    body: JSON.stringify(payload)
 
                 });
         } catch {
@@ -289,9 +286,7 @@ export default {
                         "Content-Type": "application/json",
                         "Authorization": "Bearer " + access_token
                     },
-                    body: JSON.stringify(
-                        { name }
-                    )
+                    body: JSON.stringify({ name })
 
                 });
         } catch {
@@ -331,8 +326,10 @@ export default {
         context.commit("setUserWebsites", responseData.websites);
     },
     //SPOTIFY API
-    async apiForSongInfo(_, payload) {
-        let url = new URL("api/spotifyacess", process.env.VUE_APP_URL);
+    async apiForSongInfo(context, payload) {
+        let url = new URL("api/spotifyaccess", process.env.VUE_APP_URL);
+        let access_token = context.getters.token;
+
         let response;
         try {
             response = await fetch(url,
@@ -340,10 +337,9 @@ export default {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
+                        "Authorization": "Bearer " + access_token
                     },
-                    body: JSON.stringify(
-                        payload
-                    )
+                    body: JSON.stringify(payload)
                 });
         } catch {
             console.log("There was an error!");
