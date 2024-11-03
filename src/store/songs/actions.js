@@ -46,7 +46,8 @@ export default {
                         "Authorization": "Bearer " + access_token
                     },
                 });
-        } catch {
+        } catch(error) {
+            console.error(error);
             context.commit("setAllSongsLoaded", true);
             return false;
         }
@@ -86,7 +87,8 @@ export default {
                     },
                     body: JSON.stringify(body)
                 });
-        } catch {
+        } catch(error) {
+            console.error(error);
             return false;
         }
         const responseData = await response.json();
@@ -124,7 +126,8 @@ export default {
                     },
                     body: JSON.stringify(body)
                 });
-        } catch {
+        } catch(error) {
+            console.error(error);
             return false;
         }
         const responseData = await response.json();
@@ -138,6 +141,7 @@ export default {
     //MUSIC KEYS
     async loadMusicKeys(context) {
         let url = new URL(`api/keys`, process.env.VUE_APP_URL);
+        let access_token = context.getters.token;
 
         let response;
         try {
@@ -149,7 +153,8 @@ export default {
                         "Authorization": "Bearer " + access_token,
                     },
                 });
-        } catch {
+        } catch(error) {
+            console.error(error);
             return;
         }
         const responseData = await response.json();
@@ -176,7 +181,8 @@ export default {
                         "Authorization": "Bearer " + access_token
                     },
                 });
-        } catch {
+        } catch(error) {
+            console.error(error);
             return;
         }
         const responseData = await response.json();
@@ -204,7 +210,8 @@ export default {
                     },
 
                 });
-        } catch {
+        } catch(error) {
+            console.error(error);
             return;
         }
         const responseData = await response.json();
@@ -232,7 +239,8 @@ export default {
                     body: JSON.stringify(payload)
 
                 });
-        } catch {
+        } catch(error) {
+            console.error(error);
             return;
         }
         const responseData = await response.json();
@@ -262,7 +270,8 @@ export default {
                         payload
                     )
                 });
-        } catch {
+        } catch(error) {
+            console.error(error);
             return;
         }
         const responseData = await response.json();
@@ -289,8 +298,8 @@ export default {
                     body: JSON.stringify({ name })
 
                 });
-        } catch {
-            console.log("There was an error!");
+        } catch(error) {
+            console.error(error);
             return;
         }
         const responseData = await response.json();
@@ -315,8 +324,8 @@ export default {
                     },
 
                 });
-        } catch {
-            console.log("There was an error!");
+        } catch(error) {
+            console.error(error);
             return;
         }
         const responseData = await response.json();
@@ -341,8 +350,8 @@ export default {
                     },
                     body: JSON.stringify(payload)
                 });
-        } catch {
-            console.log("There was an error!");
+        } catch(error) {
+            console.error(error);
             return false;
         }
         const responseData = await response.json();
@@ -438,6 +447,7 @@ export default {
                     body: JSON.stringify({song_id: payload.song_id})
                 });
         } catch(error) {
+            console.error(error);
             return false;
         }
         return response.ok;

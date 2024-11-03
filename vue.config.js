@@ -14,6 +14,7 @@ const paths = [
   { path: "/metronome", priority: 0.9 },         // Metronome page
   { path: "/resetpswd", priority: 0.6 },         // Reset Password page
   { path: "/delete-acc", priority: 0.5 },        // Delete Account page
+  { path: "/privacy-policy", priority: 0.5 },    // Privacy policy page
 ];
 // { path: "/songs/:songId", priority: 0.9 },     // Song Detail page
 

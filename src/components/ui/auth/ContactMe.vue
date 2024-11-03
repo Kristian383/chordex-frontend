@@ -1,5 +1,5 @@
 <template>
-  <div class="contact">
+  <div id="contact-me" class="contact">
     <h2>Contact me</h2>
     <form>
       <div class="form-group">

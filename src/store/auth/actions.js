@@ -38,7 +38,8 @@ export default {
                         username: payload.user.username
                     })
                 });
-        } catch {
+        } catch(error) {
+            console.error(error);
             return "There was an error!";
         }
 
@@ -155,10 +156,7 @@ export default {
                 expiresIn,
                 user
             });
-            // const response = await context.dispatch("loadAllSongs");
-            // if (!response) {
-            //     context.dispatch("autoLogout");
-            // }
+
             context.commit("activateSidebar");
             context.dispatch("loadPlaylists");
             context.commit("setLoader");
@@ -193,8 +191,8 @@ export default {
                     body: JSON.stringify({ email })
                 });
 
-        } catch {
-            console.log("There was an error!");
+        } catch(error) {
+            console.error(error);
             return "error";
         }
         if (!response.ok) {
@@ -223,9 +221,10 @@ export default {
                     },
                     body: JSON.stringify({ new: payload.new, email: payload.email })
                 });
-        } catch {
-            console.log("There was an error!");
             return "There was an error!";
+        } catch(error) {
+            console.error(error);
+            return;
         }
         const responseData = await response.json();
 
@@ -251,7 +250,8 @@ export default {
                     })
                 });
 
-        } catch {
+        } catch(error) {
+            console.error(error);
             return false;
         }
         if (!response.ok) {

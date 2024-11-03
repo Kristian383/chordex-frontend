@@ -16,6 +16,7 @@ const ResourcesList = () => import('./components/ui/ResourcesList.vue');
 const NotFound = () => import('./pages/NotFound.vue');
 const MetronomeView = () => import('./pages/MetronomeView.vue');
 const SongKeysAccordion = () => import('./pages/SongKeysAccordion.vue');
+const PrivacyPolicy = () => import('./pages/PrivacyPolicy.vue');
 
 const router = createRouter({
   history: createWebHistory(),
@@ -150,6 +151,17 @@ const router = createRouter({
       },
     },
     {
+      path: "/privacy-policy",
+      component: PrivacyPolicy,
+      name: "Privacy Policy",
+      meta: { 
+        title: "Privacy Policy | Chordex",
+        canonicalUrl: "https://chordex.net/privacy-policy",
+        description: 'Read Chordex\'s Privacy Policy to understand how we collect, use, and protect your personal information. Your privacy is important to us, and we are committed to safeguarding your data.'
+
+      },
+    },
+    {
       path: "/resetpswd",
       component: ResetPassword,
       name: "Reset Password",
@@ -182,8 +194,10 @@ const router = createRouter({
      },
     },
   ],
-  scrollBehavior(_, _2, savedPosition) {
-    if (savedPosition) {
+  scrollBehavior(to, _2, savedPosition) {
+    if (to.hash) {
+      return { el: to.hash };
+    } else if (savedPosition) {
       return savedPosition;
     } else {
       return { left: 0, top: 0, behavior: "smooth" };
