@@ -4,11 +4,13 @@ export default {
    },
    setUser(state, payload) {
       state.user = payload.user;
-      // state.tokenExpiration=payload.tokenExpiration;
       state.token=payload.token;
    },
    logoutUserState(state) {
       state.user = {};
-   }
-
+   },
+   setCookieConsent(state, payload) {
+       state.cookieConsent = payload;
+       localStorage.setItem('cookieConsent', payload);
+   },
 };

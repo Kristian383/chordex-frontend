@@ -8,6 +8,7 @@ export default {
             user: {},
             token: null,
             didAutoLogout: false,
+            cookieConsent: null,
         };
     },
     getters,

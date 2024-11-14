@@ -3,6 +3,7 @@
   <the-sidebar />
   <router-view />
   <the-footer />
+  <privacy-policy v-if="!cookieConsent" />
 </template>
 
 <script setup>
@@ -13,6 +14,7 @@ import { useRouter } from 'vue-router';
 import TheSidebar from "./components/layout/TheSidebar.vue";
 import TheHeader from "./components/layout/TheHeader.vue";
 import TheFooter from "./components/layout/TheFooter.vue";
+import PrivacyPolicy from "./components/layout/PrivacyPolicy.vue";
 
 const store = useStore();
 const router = useRouter();
@@ -20,6 +22,8 @@ const router = useRouter();
 store.dispatch("tryLogin");
 
 const didAutoLogout = computed(() => store.getters.didAutoLogout);
+
+const cookieConsent = computed(() => store.getters.checkCookieConsent);
 
 watch(didAutoLogout, (curValue, oldValue) => {
   if (curValue && curValue !== oldValue) {
